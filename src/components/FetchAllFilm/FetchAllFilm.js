@@ -13,7 +13,7 @@ function FetchAllFilm() {
     const initialestate ={
         loading : true,
         error : '',
-       films : {}
+        films : {}
     }
     const reducer = (state, action) => {
         switch (action.type) {
@@ -40,20 +40,17 @@ function FetchAllFilm() {
     useEffect(()=>{
         axios.get('http://localhost:5000/allfilm')
         .then(response=>{
-                dispatch({type: 'FETCH_SUCCESS' , payload: response.data});
-        
-            }).catch(error=>{  
+          dispatch({type: 'FETCH_SUCCESS' , payload: response.data});
+          
+        }).catch(error=>{  
                  dispatch({type: 'FETCH_ERROR'});});
-    })
+    }, [])
 
   return (
     <React.Fragment>
-
     Listes des films:
       {state.loading?'loading....': state.films.map((film,index)=> {
-
         return(
-
          <React.Fragment key={index}>
        
          <h3>{film.nom} </h3>
@@ -62,6 +59,7 @@ function FetchAllFilm() {
          <p> {film.genre}</p>
          <p> {film._id}</p>
          <p> {moment(film.date_sortie).format('L')}</p>
+         <p> {moment(film.date_creation).format('LLL')}</p>
         
         <Link to={`/editfilm/${film._id}`}> <button bg="orange">Editer </button></Link>
 

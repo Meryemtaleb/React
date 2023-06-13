@@ -29,7 +29,7 @@ const reducer = (state,action)=>{
 const [state, dispatch] =useReducer(reducer,initialestate)
 
 useEffect(()=>{
-    axios.get('http://localhost:5000/')
+    axios.get('http://localhost:5000/',{ withCredentials:true })
     .then(response=>{
             dispatch({type: 'FETCH_SUCCESS' , payload: response.data});
     

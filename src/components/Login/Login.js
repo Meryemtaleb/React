@@ -30,9 +30,10 @@ function Login() {
             label='Password'
             type='password'
             name="password"
-          />          <Button content='Login' primary />
+          />          
+          <Button content='Login' primary />
         </Form>
-      </Grid.Column>      <Grid.Column verticalAlign='middle'>
+      </Grid.Column><Grid.Column verticalAlign='middle'>
         <Button content='Sign up' icon='signup' size='big' as='a' href="/inscription" />
       </Grid.Column>
     </Grid>    <Divider vertical>Or</Divider>
