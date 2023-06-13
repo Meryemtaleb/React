@@ -13,6 +13,8 @@ function NewFilm() {
         <input type="text" name="realisateur"/><br/>
         <label for="">Genre</label>
         <input type="text" name="genre"/><br/>
+        <label for="">Date de sortie</label>
+        <input type="date" name="date_sortie"/><br/>
 
         {/* <input type="submit" value="envoyer"/> */}
         <Button bg="orange">Submit</Button>
