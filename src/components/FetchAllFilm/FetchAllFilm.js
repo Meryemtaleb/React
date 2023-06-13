@@ -3,6 +3,10 @@ import React, {useEffect, useReducer}from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Button, Icon } from 'semantic-ui-react'
+//Moment (date)
+import moment from 'moment/moment' ;
+import 'moment/locale/fr'
+moment().locale('fr')
 
 function FetchAllFilm() {
   
@@ -57,6 +61,7 @@ function FetchAllFilm() {
          <p> {film.realisateur}</p>
          <p> {film.genre}</p>
          <p> {film._id}</p>
+         <p> {moment(film.date_sortie).format('L')}</p>
         
         <Link to={`/editfilm/${film._id}`}> <button bg="orange">Editer </button></Link>
 
