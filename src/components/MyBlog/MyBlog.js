@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom';
 function MyBlog() {
+    let navigate = useNavigate();
 const [file,setFile] = useState(null);
 const [titre,setTitre] = useState('');
 const [username,setUsername] = useState('');
@@ -27,6 +28,7 @@ const handelSubmit = (event)=>{
         axios.post(`http://localhost:5000/submit-blog/`,formData)
         .then(( response )=>{
             console.log(response.data);
+            return navigate('/blog')
         }).catch(( error )=>{
             console.log(error);
         });

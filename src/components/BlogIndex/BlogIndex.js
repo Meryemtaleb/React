@@ -46,9 +46,7 @@ function BlogIndex() {
     <React.Fragment key={index}>
         <h1>{blog.titre}</h1>
         <h3>{blog.username}</h3>
-        <img src={`http://localhost:5000/${blog.imagename}`} />
-
-
+        <img src={`http://localhost:5000/${blog.imagename}` } width={'200px'} />
     </React.Fragment>
 
     )
