@@ -35,7 +35,30 @@ useEffect(()=>{
     
         }).catch(error=>{  
              dispatch({type: 'FETCH_ERROR'});});
-})
+} ,[])
+
+try{
+    var returnContact = state.contacts.map((contact)=> {
+
+    return(
+
+     <React.Fragment>
+     <h3>{contact.firstname} </h3>
+     <h3>{contact.lastname} </h3>
+     <p> votre email est : {contact.email}</p>
+     
+     </React.Fragment>
+    )
+}) 
+}
+catch(error){
+    console.log(error)
+    console.log("utilisateur non connecter")
+
+}
+
+
+
 
 //CORS ets une librereie pour permettre d'acceder au données exterieur
 
@@ -44,22 +67,7 @@ useEffect(()=>{
     <React.Fragment>
       
         <h1>Bienvenu sur notre site React</h1>
-      
-        Listes des contacts :
-          {state.loading?'loading....': state.contacts.map((contact,index)=> {
-
-            return(
-
-             <React.Fragment key={index}>
-             <h3>{contact.firstname} </h3>
-             <h3>{contact.lastname} </h3>
-             <p> votre email est : {contact.email}</p>
-             
-             </React.Fragment>
-
-            )
-
-        })}
+        {returnContact}
     </React.Fragment>
   )
 }
