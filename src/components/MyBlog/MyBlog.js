@@ -39,29 +39,27 @@ function MyBlog() {
                 });
         }
     };
-
     return (
-
-
-        <form className='col-4 m-auto' onSubmit={handelSubmit} >
-            <div className="mb-3">
-                <label className="form-label" >Title</label>
-                <input type='text' className="form-control" name='titre' onChange={handelTitreChange} />
-            </div>
-            <div className="mb-3">
-                <label className="form-label">Username</label>
-                <input type='text' className="form-control" name='username' onChange={handelUsernameChange} />
-            </div>
-            <div class="form-floating">
-                <textarea class="form-control" name='content' onChange={handelContentChange}></textarea>
-            </div>
-            <div className="input-group my-3">
-                <input class="form-control" type='file' onChange={handelFileChange} />
-            </div>
-
-
-            <button type="submit " >Envoyer</button>
-        </form>
+        <div className='d-flex justify-content-center align-items-center vh-100'>
+            <form className='col-lg-3 col-md-6 col-sm-12 col-xs-12 ' onSubmit={handelSubmit} >
+                <h2 className='text-success'>New Post</h2>
+                <div className="mb-3">
+                    <label className="form-label" >Title</label>
+                    <input type='text' className="form-control" name='titre' onChange={handelTitreChange} />
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">Username</label>
+                    <input type='text' className="form-control" name='username' onChange={handelUsernameChange} />
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" name='content' onChange={handelContentChange}></textarea>
+                </div>
+                <div className="input-group my-3">
+                    <input class="form-control" type='file' onChange={handelFileChange} />
+                </div>
+                <button className='btn btn-primary' type="submit " >Envoyer</button>
+            </form>
+        </div>
     )
 }
 

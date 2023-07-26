@@ -1,11 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
 function Navbar() {
 
 
   return (
-    <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <nav className="navbar navbar-expand-lg bg-dark fixed-top" data-bs-theme="dark">
     <div className="container-fluid">
     <img src='img/blog.jpg' width={"60px"} height={"50px"} className='rounded-circle me-4'/>
       <a className="navbar-brand" href="/blog">Myblog</a>
@@ -15,7 +13,7 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" aria-current="page" href="/myblog">Nouveau post</a>
+            <a className="nav-link" aria-current="page" href="/myblog">New post</a>
           </li>
         </ul>
       </div>

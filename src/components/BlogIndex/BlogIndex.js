@@ -1,11 +1,12 @@
 import React, { useEffect, useReducer } from 'react'
 import axios from 'axios'
+import { Button } from 'semantic-ui-react';
 function BlogIndex() {
 
   const initialestate = {
     loading: true,
     error: '',
-    blogs: {}
+    blogs: []
   }
 
   const reducer = (state, action) => {
@@ -19,7 +20,7 @@ function BlogIndex() {
       case 'FETCH_ERROR':
         return {
           loading: false,
-          blogs: {},
+          blogs: [],
           error: 'Something went wrong!!!!!',
         };
       default:
@@ -42,25 +43,31 @@ function BlogIndex() {
 
   return (
     <React.Fragment>
-    <img src='img/hero.jpg' width={"100%"} height={"620px"}/>
+ 
+      <img src="https://www.my-blog.fr/wp-content/uploads/2018/05/blog6SLIDER.jpg" className="img-fluid"  alt="Responsive Image"/>
       <h1 className='text-primary fs-1 '>My Blog : actualités et conseils.</h1>
-      <div className='d-flex justify-content-evenly mt-4'>
-      {state.loading ? 'loading....' : state.blogs.map((blog, index) => {
-        return (
-          <React.Fragment key={index}>
-        
-            <div className="card col-3" >
-              <img src={`http://localhost:5000/${blog.imagename}`}  />
+      <div className='row justify-content-evenly mt-4'>
+        {state.loading ? 'loading....' : state.blogs.map((blog, index) => {
+          return (
+            <React.Fragment key={index}>
+              <div className="card col-lg-3 col-md-6 col-sm-12 col-xs-12 my-3" >
+                <img className="img-fluid" src={`http://localhost:5000/${blog.imagename}`} />
                 <h1 className='text-info'>{blog.titre}</h1>
                 <h3>{blog.username}</h3>
                 <p>{blog.content}</p>
+                <div className='d-flex justify-content-evenly'>
+                <Button primary as='a' href={`/editblog/${blog._id}`}>Edit</Button>
+                <form action={`http://localhost:5000/deleteblog/${blog._id}?_method=DELETE`} method="post">
+                  <input type="hidden" name="_method" value="DELETE" />
+                  <Button positive>Delete</Button>
+                </form></div>
               </div>
-            
-          </React.Fragment>
 
-        )
-      })}
-        </div>
+            </React.Fragment>
+
+          )
+        })}
+      </div>
     </React.Fragment>
   )
 }
