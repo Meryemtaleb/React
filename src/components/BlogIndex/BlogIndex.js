@@ -57,7 +57,7 @@ function BlogIndex() {
                 <p>{blog.content}</p>
                 <div className='d-flex justify-content-evenly'>
                 <Button primary as='a' href={`/editblog/${blog._id}`}>Edit</Button>
-                <form action={`http://localhost:5000/deleteblog/${blog._id}?_method=DELETE`} method="post">
+                <form action={`http://localhost:5000/blogdelete/${blog._id}?_method=DELETE`} method="post">
                   <input type="hidden" name="_method" value="DELETE" />
                   <Button positive>Delete</Button>
                 </form></div>
